@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  3cx_exporter:
+    restart: on-failure
+    image: guenterbailey/3cx_exporter:latest
+    networks:
+      - metricnet
+    volumes:
+      - ./config.json:/3cx_exporter/config.json
+    ports:
+      - "0.0.0.0:9523:9523"
+
+networks:
+  metricnet:
+
