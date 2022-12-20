@@ -26,4 +26,5 @@ func TestTrunks(t *testing.T) {
 	trunk := response.List[0]
 	assert.Equal("SIP-Provider", trunk.Name)
 	assert.Equal(true, trunk.IsRegistered)
+	assert.Equal(10,trunk.SimCalls)
 }

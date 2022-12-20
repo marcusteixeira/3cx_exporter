@@ -22,6 +22,7 @@ var (
 	serviceMemoryDesc = prometheus.NewDesc(prefix+"service_memory", "Memory usage of service", []string{"name"}, nil)
 
 	trunkRegisteredDesc = prometheus.NewDesc(prefix+"trunk_registered", "Status of trunk", []string{"name"}, nil)
+	trunkActiveCallsDesc = prometheus.NewDesc(prefix+"trunk_calls_active", "Number of current active calls of trunk", []string{"name"}, nil)
 )
 
 // Exporter represents a prometheus exporter
@@ -44,6 +45,7 @@ func (ex *Exporter) Describe(ch chan<- *prometheus.Desc) {
 	ch <- serviceMemoryDesc
 
 	ch <- trunkRegisteredDesc
+	ch <- trunkActiveCallsDesc
 }
 
 // Collect collects the metrics
@@ -102,6 +104,7 @@ func (ex *Exporter) Collect(ch chan<- prometheus.Metric) {
 				registered = 1
 			}
 			ch <- prometheus.MustNewConstMetric(trunkRegisteredDesc, prometheus.GaugeValue, float64(registered), labels...)
+			ch <- prometheus.MustNewConstMetric(trunkActiveCallsDesc, prometheus.GaugeValue, float64(trunk.SimCalls), labels...)
 		}
 	} else {
 		log.Println("failed to fetch TrunkList:", err)
