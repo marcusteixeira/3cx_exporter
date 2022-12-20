@@ -4,7 +4,7 @@ package exporter
 type Trunk struct {
 	Name         string
 	IsRegistered bool
-	SimCalls 	 int
+	SimCalls 	 string
 }
 
 // TrunkList fetches the trunk list
