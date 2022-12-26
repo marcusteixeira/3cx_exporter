@@ -115,7 +115,6 @@ func (ex *Exporter) Collect(ch chan<- prometheus.Metric) {
 				registered = 1
 			}
 			ch <- prometheus.MustNewConstMetric(trunkRegisteredDesc, prometheus.GaugeValue, float64(registered), labels...)
-			ch <- prometheus.MustNewConstMetric(trunkActiveCallsDesc, prometheus.GaugeValue, (trunk.SimCalls), labels...)
 		}
 	} else {
 		log.Println("failed to fetch TrunkList:", err)
