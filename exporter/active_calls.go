@@ -10,7 +10,7 @@ type Calls struct {
 // ActiveCalls fetches the calls list
 func (api *API) ActiveCalls() ([]ActiveCalls, error) {
 	response := struct {
-		List []ActiveCalls `json:"list"`
+		List []calls `json:"list"`
 	}{}
 
 	err := api.getResponse("ActiveCalls", &response)
