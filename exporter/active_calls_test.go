@@ -17,7 +17,7 @@ func TestCalls(t *testing.T) {
 	require.NoError(err)
 
 	response := struct {
-		List []calls `json:"list"`
+		List []Calls `json:"list"`
 	}{}
 
 	require.NoError(json.Unmarshal(data, &response))
