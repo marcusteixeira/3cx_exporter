@@ -93,6 +93,17 @@ func (ex *Exporter) Collect(ch chan<- prometheus.Metric) {
 		log.Println("failed to fetch ServiceList:", err)
 	}
 
+	activecalls, err := ex.API.ActiveCalls()
+	if err == nil {
+		for i := range activecalls {
+			calls := activecalls[i]
+
+			ch <- prometheus.MustNewConstMetric(trunkActiveCallsDesc, prometheus.GaugeValue, string(activecalls.Caller))
+		}
+	} else {
+		log.Println("failed to fetch ActiveCalls:", err)
+	}
+
 	trunks, err := ex.API.TrunkList()
 	if err == nil {
 		for i := range trunks {

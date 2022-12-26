@@ -1,0 +1,30 @@
+{
+    "Now": "2022-12-26T20:41:13.3797146+00:00",
+    "list": [
+    {
+    "Id": 154906,
+    "Caller": "8050 Provider SIP 01 (03358765)",
+    "Callee": "9090 User Test | Common ",
+    "Status": "Talking",
+    "LastChangeStatus": "2022-12-26T20:31:59+00:00",
+    "EstablishedAt": "2022-12-26T20:31:59+00:00"
+    },
+    {
+    "Id": 154915,
+    "Caller": "8060 Provider SIP 01 (03358765)",
+    "Callee": "9091 User Test | Common",
+    "Status": "Talking",
+    "LastChangeStatus": "2022-12-26T20:32:14+00:00",
+    "EstablishedAt": "2022-12-26T20:32:14+00:00"
+    },
+    {
+    "Id": 154917,
+    "Caller": "8070 Provider SIP 02 (03358765)",
+    "Callee": "8080 L Test | Inbound",
+    "Status": "Talking",
+    "LastChangeStatus": "2022-12-26T20:32:18+00:00",
+    "EstablishedAt": "2022-12-26T20:32:18+00:00"
+    }
+    ],
+    "licenseRestricted": false
+    }
